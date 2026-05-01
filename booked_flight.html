@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Your Booked Flights</title>
+</head>
+<body>
+<h1>Your Booked Flights</h1>
+<ul>
+{% for booking in bookings %}
+<li>{{ booking.flight.departure_city }} to {{ booking.flight.arrival_city }}</li>
+{% endfor %}
+</ul>
+<p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+</body>
+</html>

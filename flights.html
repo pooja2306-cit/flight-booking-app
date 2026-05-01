@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flights</title>
+</head>
+<body>
+
+    <h1>Available Flights</h1>
+
+    {% if flights %}
+        {% for flight in flights %}
+            <div>
+                <p>
+                    <strong>{{ flight.flight_number }}</strong><br>
+                    {{ flight.departure_city }} → {{ flight.arrival_city }}<br>
+                    {{ flight.departure_time }}
+                </p>
+
+                <a href="{{ url_for('book_flight', flight_id=flight.id) }}">
+                    Book Flight
+                </a>
+
+                <hr>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No flights available</p>
+    {% endif %}
+
+    <br>
+
+    <a href="{{ url_for('add_flight') }}">Add Flight</a><br>
+    <a href="{{ url_for('view_bookings') }}">View Bookings</a><br>
+    <a href="{{ url_for('logout') }}">Logout</a>
+
+</body>
+</html>

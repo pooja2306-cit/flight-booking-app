@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add a Flight</title>
+</head>
+<body>
+<h1>Add a Flight</h1>
+<form method="POST" action="{{ url_for('add_flight') }}">
+{{ form.hidden_tag() }}
+<label for="flight_number">Flight Number:</label>
+{{ form.flight_number(class="form-control") }}
+<label for="departure_city">Departure City:</label>
+{{ form.departure_city(class="form-control") }}
+<label for="arrival_city">Arrival City:</label>
+{{ form.arrival_city(class="form-control") }}
+<label for="departure_time">Departure Time:</label>
+{{ form.departure_time(class="form-control") }}
+{{ form.submit(class="btn btn-primary") }}
+</form>
+</body>
+</html>

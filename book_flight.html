@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Flight</title>
+</head>
+<body>
+
+    <h1>Book Flight</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p style="color:red;">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if flight %}
+        <h2>Flight Details</h2>
+
+        <p><strong>Flight Number:</strong> {{ flight.flight_number }}</p>
+        <p><strong>From:</strong> {{ flight.departure_city }}</p>
+        <p><strong>To:</strong> {{ flight.arrival_city }}</p>
+        <p><strong>Departure Time:</strong> {{ flight.departure_time }}</p>
+
+        <form method="POST">
+            <button type="submit">Confirm Booking</button>
+        </form>
+
+    {% else %}
+        <h3 style="color:red;">Flight not found!</h3>
+    {% endif %}
+
+    <br><br>
+
+    <a href="{{ url_for('flights') }}">Back to Flights</a>
+
+</body>
+</html>
